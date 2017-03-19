@@ -1,0 +1,10 @@
+*~
+*.lock
+*.DS_Store
+*.swp
+*.out
+*.pyc
+node_modules/*
+dist/*
+coverage/*
+.tmp/*
