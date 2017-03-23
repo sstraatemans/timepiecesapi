@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var ArtistSchema = new Schema({
+var ChartSchema = new Schema({
   nid: { //the NodeID from drupal
     type: Number,
     required: true,
@@ -14,22 +14,7 @@ var ArtistSchema = new Schema({
     type: String,
     required: true
   },
-  name: { //name of the band
-    firstName: {
-      type: String
-    },
-    middleName: {
-      type: String
-    },
-    lastName: {
-      type: String,
-      required: true
-    }
-  },
   body: {
-    type: String
-  },
-  wikiLink: {
     type: String
   },
   website: {
@@ -38,12 +23,12 @@ var ArtistSchema = new Schema({
   profileImage: { //the filename of the albumcover
     type: String
   },
-  amazon: { //the amazon ID
-    type: String
+  year: { //the year when published
+    type: Number
   },
   hits: { //hits on the page
     type: Number
   }
 });
 
-module.exports = mongoose.model('artist', ArtistSchema);
+module.exports = mongoose.model('chart', ChartSchema);
