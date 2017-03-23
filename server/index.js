@@ -4,6 +4,8 @@ var api = require('./api');
 var config = require('./config');
 var logger = require('./util/logger');
 
+require('mongoose').connect(config.db.url);
+
 // setup the api
 app.use('/api/v1', api);
 

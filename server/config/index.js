@@ -9,6 +9,9 @@ var config = {
   expireTime: 24 * 60 * 10,
   secrets: {
     jwt: process.env.JWT || 'gumball'
+  },
+  db: {
+    url: process.env.MONGODB_URI
   }
 };
 
