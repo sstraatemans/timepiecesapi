@@ -4,6 +4,7 @@ var router = require('express').Router();
 // for all our resources
 router.use('/artists', require('./artist/artistRoutes'));
 router.use('/albums', require('./album/albumRoutes'));
+router.use('/charts', require('./chart/chartRoutes'));
 router.use('/users', require('./user/userRoutes'));
 
 module.exports = router;

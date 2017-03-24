@@ -3,9 +3,7 @@ var Schema = mongoose.Schema;
 
 var ChartSchema = new Schema({
   nid: { //the NodeID from drupal
-    type: Number,
-    required: true,
-    unique: true
+    type: Number
   },
   mid: { //the ID of Freebase
     type: String
