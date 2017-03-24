@@ -45,7 +45,14 @@ exports.post = function(req, res, next) {
 
 exports.getOne = function(req, res, next) {
   var album = req.album;
-  res.json(album);
+
+  //when album is called, the hits are upped by 1
+  album.hits++;
+  album.save(function(err, saved) {
+    res.json(album);
+  })
+
+
 };
 
 exports.updateOne = function(req, res, next) {

@@ -32,7 +32,8 @@ var AlbumSchema = new Schema({
     type: Number
   },
   hits: { //hits on the page
-    type: Number
+    type: Number,
+    default: 0
   }
 });
 

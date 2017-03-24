@@ -8,6 +8,7 @@ exports.albums = function(){
     title: "Test"
   };
   var newAlbumId;
+  var hits;
 
   describe('[ALBUMS]', function(){
     it('should get all albums', function(done) {
@@ -28,9 +29,20 @@ exports.albums = function(){
         .get('/api/v1/albums/58d58bf2f7caf70c9ec0d122')
         .set('Accept', 'application/json')
         .end(function(err, resp) {
+          hits = resp.body.hits;
           expect(resp.body).to.be.an('object');
           expect(resp.body.title).to.equal("Graceland");
           expect(resp.status).to.equal(200);
+          done();
+        })
+    });
+
+    it('album hits is upped by 1', function(done) {
+      request(app)
+        .get('/api/v1/albums/58d58bf2f7caf70c9ec0d122')
+        .set('Accept', 'application/json')
+        .end(function(err, resp) {
+          expect(resp.body.hits).to.equal(hits+1);
           done();
         })
     });
@@ -94,7 +106,7 @@ exports.albums = function(){
         })
     });
 
-    it('should fail to get update album', function(done) {
+    it('should fail to update album', function(done) {
       request(app)
         .put('/api/v1/albums/'+newAlbumId)
         .send(album)
