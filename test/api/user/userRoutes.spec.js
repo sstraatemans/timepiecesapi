@@ -39,6 +39,7 @@ exports.artists = function(){
             done();
           })
       });
+
       it('should send back to info of logged in user', function(done) {
         request(app)
           .get('/api/v1/users/me')
