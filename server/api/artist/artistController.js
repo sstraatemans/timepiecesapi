@@ -7,7 +7,11 @@ exports.params = function(req, res, next, id) {
   Artist.findById(id)
     .then(function(artist) {
       if (!artist) {
-        next(new Error('No artist with that id'));
+        res.status(404);
+        res.json({
+          status: 404,
+          message: "not found"          
+        });
       } else {
         req.artist = artist;
         next();
@@ -56,4 +60,14 @@ exports.updateOne = function(req, res, next) {
       res.json(saved);
     }
   })
+};
+
+exports.deleteOne = function(req, res, next) {
+  req.artist.remove(function(err, removed) {
+    if (err) {
+      next(err);
+    } else {
+      res.json(removed);
+    }
+  });
 };

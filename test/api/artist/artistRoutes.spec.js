@@ -109,5 +109,39 @@ exports.artists = function(){
         })
     });
 
+    it('should fail to delete 1 artist', function(done) {
+      request(app)
+        .delete('/api/v1/artists/'+newArtistId)
+        .set('Accept', 'application/json')
+        .end(function(err, resp) {
+          expect(resp.status).to.equal(401);
+          done();
+        })
+    });
+
+    it('should delete 1 artist', function(done) {
+      request(app)
+        .delete('/api/v1/artists/'+newArtistId)
+        .set('Accept', 'application/json')
+        .set('Authorization', 'Bearer ' + token)
+        .end(function(err, resp) {
+          expect(resp.body).to.be.an('object');
+          expect(resp.body.title).to.equal(artist.title);
+          expect(resp.status).to.equal(200);
+          done();
+        })
+    });
+
+    it('should fail to delete 1 artist, because not there', function(done) {
+      request(app)
+        .delete('/api/v1/artists/'+newArtistId)
+        .set('Accept', 'application/json')
+        .set('Authorization', 'Bearer ' + token)
+        .end(function(err, resp) {
+          expect(resp.status).to.equal(404);
+          done();
+        })
+    });
+
   });
 }();
