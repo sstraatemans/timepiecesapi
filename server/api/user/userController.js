@@ -12,6 +12,10 @@ exports.get = function(req, res, next) {
     });
 };
 
+exports.me = function(req, res, next) {
+  res.json(req.user.toJSON());
+};
+
 exports.post = function(req, res, next) {
   var newUser = new User(req.body);
 

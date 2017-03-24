@@ -6,9 +6,10 @@ var config = {
   prod: 'production',
   port: process.env.PORT || 3000,
   // 10 days in minutes
-  expireTime: 24 * 60 * 10,
+  expireTime: process.env.EXPIRE_TIME,
   secrets: {
-    jwt: process.env.JWT || 'gumball'
+    jwt: process.env.JWT_SECRET,
+    sessions: process.env.SESSION_SECRET
   },
   db: {
     url: process.env.MONGODB_URI
@@ -18,7 +19,7 @@ var config = {
     appSecret: process.env.FACEBOOK_APP_SECRET
   },
   passport: {
-    
+
   }
 };
 
