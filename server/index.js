@@ -6,19 +6,14 @@ var config = require('./config');
 var logger = require('./util/logger');
 var morgan = require('morgan');
 var session = require('express-session');
-var bodyParser = require('body-parser');
-var cors = require('cors');
+
 
 //mongoose setup
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 mongoose.connect(config.db.url);
 
-app.use(cors());
-app.use(morgan('dev')); // log every request to the console
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-
+require('./util/middleware')(app);
 
 //setup auth api
 app.use('/', auth);
