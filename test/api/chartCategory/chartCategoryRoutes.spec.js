@@ -23,18 +23,6 @@ exports.chartCategories = function(){
         })
     });
 
-    it('should get 1 chartCategory', function(done) {
-      request(app)
-        .get('/api/v1/categories/58d5966b599d9611d875664b')
-        .set('Accept', 'application/json')
-        .end(function(err, resp) {
-          expect(resp.body).to.be.an('object');
-          expect(resp.body.title).to.equal("VPRO");
-          expect(resp.status).to.equal(200);
-          done();
-        })
-    });
-
     it('should fail to get create chartCategory', function(done) {
       request(app)
         .post('/api/v1/categories')
@@ -72,6 +60,18 @@ exports.chartCategories = function(){
         .set('Authorization', 'Bearer ' + token)
         .end(function(err, resp) {
           newChartCategoryId = resp.body._id;
+          expect(resp.body).to.be.an('object');
+          expect(resp.body.title).to.equal(chartCategory.title);
+          expect(resp.status).to.equal(200);
+          done();
+        })
+    });
+
+    it('should get 1 chartCategory', function(done) {
+      request(app)
+        .get('/api/v1/categories/'+newChartCategoryId)
+        .set('Accept', 'application/json')
+        .end(function(err, resp) {
           expect(resp.body).to.be.an('object');
           expect(resp.body.title).to.equal(chartCategory.title);
           expect(resp.status).to.equal(200);

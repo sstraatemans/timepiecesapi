@@ -24,28 +24,7 @@ exports.albums = function(){
         })
     });
 
-    it('should get 1 album', function(done) {
-      request(app)
-        .get('/api/v1/albums/58d58bf2f7caf70c9ec0d122')
-        .set('Accept', 'application/json')
-        .end(function(err, resp) {
-          hits = resp.body.hits;
-          expect(resp.body).to.be.an('object');
-          expect(resp.body.title).to.equal("Graceland");
-          expect(resp.status).to.equal(200);
-          done();
-        })
-    });
 
-    it('album hits is upped by 1', function(done) {
-      request(app)
-        .get('/api/v1/albums/58d58bf2f7caf70c9ec0d122')
-        .set('Accept', 'application/json')
-        .end(function(err, resp) {
-          expect(resp.body.hits).to.equal(hits+1);
-          done();
-        })
-    });
 
     it('should fail to get create album', function(done) {
       request(app)
@@ -90,6 +69,19 @@ exports.albums = function(){
           done();
         })
     });
+
+    it('should get 1 album', function(done) {
+      request(app)
+        .get('/api/v1/albums/'+newAlbumId)
+        .set('Accept', 'application/json')
+        .end(function(err, resp) {
+          expect(resp.body).to.be.an('object');
+          expect(resp.body.title).to.equal(album.title);
+          expect(resp.status).to.equal(200);
+          done();
+        })
+    });
+
 
     it('should update 1 album', function(done) {
       album.title = "update";

@@ -24,18 +24,6 @@ exports.charts = function(){
         })
     });
 
-    it('should get 1 chart', function(done) {
-      request(app)
-        .get('/api/v1/charts/58d5932d718bbf0fc48bd37f')
-        .set('Accept', 'application/json')
-        .end(function(err, resp) {
-          expect(resp.body).to.be.an('object');
-          expect(resp.body.title).to.equal("2016 Studio Brussel - Album 500");
-          expect(resp.status).to.equal(200);
-          done();
-        })
-    });
-
     it('should fail to get create chart', function(done) {
       request(app)
         .post('/api/v1/charts')
@@ -73,6 +61,19 @@ exports.charts = function(){
         .set('Authorization', 'Bearer ' + token)
         .end(function(err, resp) {
           newChartId = resp.body._id;
+          expect(resp.body).to.be.an('object');
+          expect(resp.body.title).to.equal(chart.title);
+          expect(resp.body.year).to.equal(chart.year);
+          expect(resp.status).to.equal(200);
+          done();
+        })
+    });
+
+    it('should get 1 chart', function(done) {
+      request(app)
+        .get('/api/v1/charts/'+newChartId)
+        .set('Accept', 'application/json')
+        .end(function(err, resp) {
           expect(resp.body).to.be.an('object');
           expect(resp.body.title).to.equal(chart.title);
           expect(resp.body.year).to.equal(chart.year);

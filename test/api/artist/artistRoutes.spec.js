@@ -26,17 +26,7 @@ exports.artists = function(){
         })
     });
 
-    it('should get 1 artist', function(done) {
-      request(app)
-        .get('/api/v1/artists/58d3ce6cf36d284fca6d3332')
-        .set('Accept', 'application/json')
-        .end(function(err, resp) {
-          expect(resp.body).to.be.an('object');
-          expect(resp.body.title).to.equal("Paul Simon");
-          expect(resp.status).to.equal(200);
-          done();
-        })
-    });
+
 
     it('should fail to get create artist', function(done) {
       request(app)
@@ -78,6 +68,18 @@ exports.artists = function(){
           expect(resp.body).to.be.an('object');
           expect(resp.body.title).to.equal(artist.title);
           expect(resp.body.name.lastName).to.equal(artist.name.lastName);
+          expect(resp.status).to.equal(200);
+          done();
+        })
+    });
+
+    it('should get 1 artist', function(done) {
+      request(app)
+        .get('/api/v1/artists/'+newArtistId)
+        .set('Accept', 'application/json')
+        .end(function(err, resp) {
+          expect(resp.body).to.be.an('object');
+          expect(resp.body.title).to.equal(artist.title);
           expect(resp.status).to.equal(200);
           done();
         })
