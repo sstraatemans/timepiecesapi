@@ -4,14 +4,24 @@ var clui = require('clui');
 var Artist = require('./../server/api/artist/artistModel');
 
 module.exports = function (artistIds, cb){
-  fs.readFile('./export/artist.json', 'utf8', function (err,data) {
-    if (err) {
-      return console.log(err);
-    }
-    var json  = JSON.parse(data);
-    json = convertJson(json);
-    toDataBase(json);
+  console.log('---------------------------');
+  console.log('start artists');
+  console.log('---------------------------');
+  
+  var json;
+  //first remove all
+  Artist.remove({}, function(){
+    fs.readFile('./export/artist.json', 'utf8', function (err,data) {
+      if (err) {
+        return console.log(err);
+      }
+      json  = JSON.parse(data);
+      json = convertJson(json);
+      toDataBase(json);
+    });
   });
+
+
 
   var toDataBase = function(json){
     if(!json){

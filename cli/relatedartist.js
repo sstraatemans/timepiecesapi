@@ -4,24 +4,14 @@ var clui = require('clui');
 var Artist = require('./../server/api/artist/artistModel');
 
 module.exports = function (artists, cb){
-  var artists = [];
+  console.log('---------------------------');
+  console.log('start related artists');
+  console.log('---------------------------');
+  
   var i=0;
 
-
-    if(artists.length===0){
-      Artist.find({}, function(err, arr) {
-        var artist = arr.map(function(a){
-          a.relatedArtists = [];
-          artists[a.nid]=a;
-
-        });
-        setRelated(artists);
-        save();
-      });
-    }else{
-      setRelated(artists);
-      save();
-    }
+    setRelated(artists);
+    save();
 
 
     function setRelated(artists){

@@ -8,24 +8,30 @@ mongoose.Promise = global.Promise;
 mongoose.connect(config.db.url);
 
 var artistsIds = [];
+var albumIds = [];
+var trackIds = [];
 
 var _  = require('lodash');
 var argv = require('minimist')(process.argv.slice(2));
 
-var t = argv["t"];
-if(!t){
-  console.log(chalk.red("No type given"));
-  process.exit(1);
-}
 
 
-require("./cli/relatedartist")(artistsIds, function(a){
-  process.exit(1);
 
+
+
+
+
+require("./cli/artist")(artistsIds, function(a){
+  artistsIds = a;
+  require("./cli/relatedartist")(artistsIds, function(a){
+    require("./cli/track")(function(a){
+      trackIds = a;
+      require("./cli/album")(artistsIds, trackIds, function(a){
+        albumIds = a;
+        process.exit(1);
+      });
+    });
+
+
+  });
 });
-
-
-// require("./cli/artist")(artistsIds, function(a){
-//   artistsIds = a;
-//   process.exit(1);
-// });

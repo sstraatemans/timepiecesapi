@@ -5,9 +5,11 @@ var AlbumSchema = new Schema({
   nid: { //the NodeID from drupal
     type: Number
   },
+  artist: { type: Schema.Types.ObjectId, ref: 'Artist' },
   mid: { //the ID of Freebase
     type: String
   },
+  tracks: { type : Array , "default" : [] },
   title: {
     type: String,
     required: true
@@ -31,10 +33,10 @@ var AlbumSchema = new Schema({
   year: { //the year when published
     type: Number
   },
-  hits: { //hits on the page
-    type: Number,
-    default: 0
-  }
+  itunes: String,
+  amazon: String,
+  spotify: String,
+  artistId: Number //This is only the export value. this needs to be converted. and can be deleted after init import
 });
 
 module.exports = mongoose.model('album', AlbumSchema);

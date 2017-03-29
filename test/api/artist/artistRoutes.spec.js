@@ -101,6 +101,15 @@ exports.artists = function(){
         })
     });
 
+
+    it('should fail to itself as a relatedArtist', function(done){
+      asdasd
+    });
+
+    it('should add a relatedArtist and itself as relatedArtist in the other', function(done){
+      sdsdf
+    });
+
     it('should fail to get update artist', function(done) {
       request(app)
         .put('/api/v1/artists/'+newArtistId)

@@ -1,10 +1,10 @@
 SELECT 
 N.nid,
 N.title,
-Album.field_artist_nid,
-Album.field_itunes_value,
-Album.field_asin_value,
-Album.field_spotify_value,
+Album.field_artist_nid as artistId,
+Album.field_itunes_value as itunes,
+Album.field_asin_value as amazon,
+Album.field_spotify_value as spotify,
 
 (
 SELECT YN.title
