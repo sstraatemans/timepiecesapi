@@ -20,8 +20,7 @@ var ArtistSchema = new Schema({
       type: String
     },
     lastName: {
-      type: String,
-      required: true
+      type: String
     }
   },
   body: {
@@ -36,12 +35,17 @@ var ArtistSchema = new Schema({
   profileImage: { //the filename of the albumcover
     type: String
   },
-  amazon: { //the amazon ID
-    type: String
+  memberships: {
+    type: Array
   },
-  hits: { //hits on the page
-    type: Number
-  }
+  alias: {
+    type: Array
+  },
+  genre: {
+    type: Array
+  },
+  relatedArtists: [{ type: Schema.Types.ObjectId, ref: 'Artist' }],
+  related_artists: Array //This is only the export value. this needs to be converted. and can be deleted after init import
 });
 
 module.exports = mongoose.model('artist', ArtistSchema);
