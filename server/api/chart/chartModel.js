@@ -7,10 +7,7 @@ var ChartSchema = new Schema({
     unique: true
   },
   category: {type: Schema.Types.ObjectId, ref: 'chartCategory'},
-  albums: [{
-    delta: Number,
-    album: {type: Schema.Types.ObjectId, ref: 'album'}
-  }],
+  albums: [{type: Schema.Types.ObjectId, ref: 'album'}],
   mid: { //the ID of Freebase
     type: String
   },

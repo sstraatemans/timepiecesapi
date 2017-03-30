@@ -25,7 +25,7 @@ var argv = require('minimist')(process.argv.slice(2));
 //   });
 // });
 
-//basics
+//
 require("./cli/category")(function(a){
   categoryIds = a;
   require("./cli/artist")(artistsIds, function(a){

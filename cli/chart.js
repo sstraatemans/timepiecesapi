@@ -18,7 +18,9 @@ module.exports = function (categories, cb){
       }
 
       Album.find({}).then(function(a) {
-        albums = a;
+        a.map(function(album){
+          albums[album.nid] = album;
+        })
 
         json  = JSON.parse(data);
         json = convertJson(json);
@@ -40,7 +42,7 @@ module.exports = function (categories, cb){
 
     var i=0;
     function save(){
-      if(i === (json.length-1)){
+      if(i === (json.length)){
         return cb(categories);
       }
       var newChart = new Chart(json[i]);
@@ -79,10 +81,9 @@ module.exports = function (categories, cb){
       if(chart.tracks){
         var albumIds = chart.tracks.split(',');
         albumIds.map(function(a){
-          newAlbumArray.push({
-            delta: delta,
-            album: albums[a.nid]
-          });
+          newAlbumArray.push(
+            albums[a]
+          );
 
           delta++;
         });

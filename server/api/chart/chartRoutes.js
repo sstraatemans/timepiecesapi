@@ -15,4 +15,9 @@ router.route('/:id')
   .put(checkUser, controller.updateOne)
   .delete(checkUser, controller.deleteOne);
 
+  router.route('/:id/albums')
+    .get(controller.getAlbums)
+    .post(controller.setAlbums)
+
+
 module.exports = router;

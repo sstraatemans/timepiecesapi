@@ -27,6 +27,7 @@ exports.params = function(req, res, next, id) {
 
 exports.get = function(req, res, next) {
   Album.find({})
+    .limit(50)
     .populate({
         path:'artist',
         model:'artist'

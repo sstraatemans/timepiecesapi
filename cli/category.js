@@ -33,7 +33,7 @@ module.exports = function (cb){
 
     var i=0;
     function save(){
-      if(i === (json.length-1)){
+      if(i === (json.length)){
         return cb(categories);
       }
       var newCategory = new Category(json[i]);

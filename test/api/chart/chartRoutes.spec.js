@@ -98,6 +98,36 @@ exports.charts = function(){
         })
     });
 
+    it('should update chart with some albums', function(done) {
+      request(app)
+        .post('/api/v1/charts/'+newChartId + '/albums')
+        .send(albums)
+        .set('Accept', 'application/json')
+        .set('Authorization', 'Bearer ' + token)
+        .end(function(err, resp) {
+          expect(resp.body).to.be.an('object');
+          expect(resp.body.title).to.equal(chart.title);
+          expect(resp.body.year).to.equal(chart.year);
+          expect(resp.status).to.equal(200);
+          done();
+        })
+    });
+
+    it('should get chart albums', function(done) {
+      request(app)
+        .get('/api/v1/charts/'+newChartId + '/albums')
+        .send(albums)
+        .set('Accept', 'application/json')
+        .set('Authorization', 'Bearer ' + token)
+        .end(function(err, resp) {
+          expect(resp.body).to.be.an('object');
+          expect(resp.body.title).to.equal(chart.title);
+          expect(resp.body.year).to.equal(chart.year);
+          expect(resp.status).to.equal(200);
+          done();
+        })
+    });
+
     it('should fail to get update chart', function(done) {
       request(app)
         .put('/api/v1/charts/'+newChartId)

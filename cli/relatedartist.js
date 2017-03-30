@@ -35,7 +35,7 @@ module.exports = function (artists, cb){
 
 
     function save(){
-      if(i === (artists.length-1)){
+      if(i === (artists.length)){
         return cb(artists);
       }
       var newArtist = artists[i];

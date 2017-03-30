@@ -4,11 +4,14 @@ var logger = require('./../../util/logger');
 
 
 exports.params = function(req, res, next, id) {
-  Chart.findOne({nid: id})
-    .populate({
+  Chart.findOne({nid: id}, '-albums')
+    .populate([{
         path:'category',
         model:'chartCategory'
-    })
+    },{
+        path:'albums',
+        model:'album'
+    }])
     .then(function(chart) {
       if (!chart) {
         res.status(404);
@@ -59,6 +62,23 @@ exports.getOne = function(req, res, next) {
   var chart = req.chart;
   res.json(chart);
 };
+
+exports.getAlbums = function(req, res, next) {
+  Chart
+    .findOne({ "nid": req.chart.nid }, '-nid -title -year -category -body ')
+    .populate({
+        path:'albums',
+        model:'album'
+    })
+    .exec(function(err, n){
+      res.json(n);
+    });
+};
+
+exports.setAlbums = function(req, res, next) {
+  //this will set the albums
+};
+
 
 exports.updateOne = function(req, res, next) {
   var chart = req.chart;

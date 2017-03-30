@@ -5,10 +5,10 @@ Chart.field_category_nid as categoryId,
 
 
 (
-SELECT GROUP_CONCAT(DISTINCT CA.field_album_nid) field_album_nid
+SELECT GROUP_CONCAT(DISTINCT CA.field_album_nid order by delta) field_album_nid
   FROM content_field_album CA
   where CA.nid = N.nid and CA.vid = N.vid 
- order by delta
+ 
 ) as tracks,
 
 (
