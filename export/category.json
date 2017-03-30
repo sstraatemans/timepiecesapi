@@ -1,0 +1,266 @@
+[
+	{
+		"nid" : 29,
+		"title" : "Studio Brussel",
+		"countryCodes" : "BE",
+		"body" : ""
+	},
+	{
+		"nid" : 31,
+		"title" : "FOK! Forum",
+		"countryCodes" : "NL",
+		"body" : ""
+	},
+	{
+		"nid" : 34,
+		"title" : "OOR",
+		"countryCodes" : "NL",
+		"body" : ""
+	},
+	{
+		"nid" : 37,
+		"title" : "Rolling Stone Magazine",
+		"countryCodes" : "US",
+		"body" : ""
+	},
+	{
+		"nid" : 38,
+		"title" : "Radio Caroline",
+		"countryCodes" : "UK",
+		"body" : ""
+	},
+	{
+		"nid" : 6692,
+		"title" : "NME",
+		"countryCodes" : "UK",
+		"body" : ""
+	},
+	{
+		"nid" : 7031,
+		"title" : "Radio 3FM",
+		"countryCodes" : "NL",
+		"body" : ""
+	},
+	{
+		"nid" : 7915,
+		"title" : "Paul Gambaccini",
+		"countryCodes" : "UK,US",
+		"body" : ""
+	},
+	{
+		"nid" : 9022,
+		"title" : "Sounds Magazine",
+		"countryCodes" : "UK",
+		"body" : ""
+	},
+	{
+		"nid" : 10853,
+		"title" : "The Times",
+		"countryCodes" : "UK",
+		"body" : ""
+	},
+	{
+		"nid" : 11368,
+		"title" : "VPRO",
+		"countryCodes" : "NL",
+		"body" : ""
+	},
+	{
+		"nid" : 11648,
+		"title" : "Entertainment Weekly",
+		"countryCodes" : "US",
+		"body" : ""
+	},
+	{
+		"nid" : 12171,
+		"title" : "Colin Larkin",
+		"countryCodes" : "UK",
+		"body" : ""
+	},
+	{
+		"nid" : 12310,
+		"title" : "Spin Magazine",
+		"countryCodes" : "US",
+		"body" : ""
+	},
+	{
+		"nid" : 12814,
+		"title" : "MOJO The Music Magazine",
+		"countryCodes" : "UK",
+		"body" : ""
+	},
+	{
+		"nid" : 13532,
+		"title" : "Virgin",
+		"countryCodes" : "UK",
+		"body" : ""
+	},
+	{
+		"nid" : 13879,
+		"title" : "The Guardian",
+		"countryCodes" : "UK",
+		"body" : ""
+	},
+	{
+		"nid" : 13961,
+		"title" : "Channel 4",
+		"countryCodes" : "UK",
+		"body" : ""
+	},
+	{
+		"nid" : 14399,
+		"title" : "Q Magazine",
+		"countryCodes" : "UK",
+		"body" : ""
+	},
+	{
+		"nid" : 14636,
+		"title" : "Algemeen Dagblad",
+		"countryCodes" : "NL",
+		"body" : ""
+	},
+	{
+		"nid" : 14927,
+		"title" : "90.7 WfUV.org",
+		"countryCodes" : "US",
+		"body" : "WFUV, 90.7 FM in New York City, is Fordham University&#39;s 50,000-watt, non-commercial radio station, with studios on campus and its antenna atop nearby Montefiore Medical Center."
+	},
+	{
+		"nid" : 15217,
+		"title" : "WBER fm90.5",
+		"countryCodes" : "US",
+		"body" : ""
+	},
+	{
+		"nid" : 16480,
+		"title" : "WFPK 91.9 Radio Louisville",
+		"countryCodes" : "US",
+		"body" : ""
+	},
+	{
+		"nid" : 16663,
+		"title" : "Rock 'n' World",
+		"countryCodes" : "US",
+		"body" : ""
+	},
+	{
+		"nid" : 17021,
+		"title" : "Melody Maker",
+		"countryCodes" : "UK",
+		"body" : ""
+	},
+	{
+		"nid" : 17341,
+		"title" : "VH1",
+		"countryCodes" : "US",
+		"body" : ""
+	},
+	{
+		"nid" : 17518,
+		"title" : "Radio Max Music",
+		"countryCodes" : "US",
+		"body" : ""
+	},
+	{
+		"nid" : 18104,
+		"title" : "90,5 The Night Brookdale Public Radio",
+		"countryCodes" : "US",
+		"body" : ""
+	},
+	{
+		"nid" : 18492,
+		"title" : "Radio 2",
+		"countryCodes" : "NL",
+		"body" : ""
+	},
+	{
+		"nid" : 18549,
+		"title" : "KINK FM",
+		"countryCodes" : "NL",
+		"body" : ""
+	},
+	{
+		"nid" : 18970,
+		"title" : "1Sound.com",
+		"countryCodes" : "US",
+		"body" : ""
+	},
+	{
+		"nid" : 19698,
+		"title" : "101 The Fox - Kansas City's Classic Rock Station",
+		"countryCodes" : "US",
+		"body" : ""
+	},
+	{
+		"nid" : 19917,
+		"title" : "Radio Veronica",
+		"countryCodes" : "NL",
+		"body" : ""
+	},
+	{
+		"nid" : 20228,
+		"title" : "WXPN 88.5 FM",
+		"countryCodes" : "US",
+		"body" : "WXPN (88.5 FM) is a non-commercial, public radio station operated by the University of Pennsylvania in Philadelphia that broadcasts a music radio format called adult album alternative (AAA), along with many other format shows supported all with an indie slant."
+	},
+	{
+		"nid" : 20894,
+		"title" : "BBC Radio 2",
+		"countryCodes" : "UK",
+		"body" : ""
+	},
+	{
+		"nid" : 21120,
+		"title" : "Musicmaker",
+		"countryCodes" : "NL",
+		"body" : ""
+	},
+	{
+		"nid" : 21376,
+		"title" : "NARM",
+		"countryCodes" : "US",
+		"body" : ""
+	},
+	{
+		"nid" : 21715,
+		"title" : "Arrow Classic Rock Radio",
+		"countryCodes" : "NL",
+		"body" : ""
+	},
+	{
+		"nid" : 21755,
+		"title" : "WTMD 89.7 Radio",
+		"countryCodes" : "US",
+		"body" : ""
+	},
+	{
+		"nid" : 22402,
+		"title" : "Consequence of Sound",
+		"countryCodes" : "US",
+		"body" : ""
+	},
+	{
+		"nid" : 22669,
+		"title" : "Absolute Radio",
+		"countryCodes" : "UK",
+		"body" : ""
+	},
+	{
+		"nid" : 25467,
+		"title" : "Nostalgie",
+		"countryCodes" : "BE",
+		"body" : ""
+	},
+	{
+		"nid" : 25787,
+		"title" : "KX Radio",
+		"countryCodes" : "NL",
+		"body" : ""
+	},
+	{
+		"nid" : 25958,
+		"title" : "UNCUT",
+		"countryCodes" : "UK",
+		"body" : ""
+	}
+]

@@ -1,7 +1,7 @@
 SELECT 
 N.nid,
 N.title,
-TT.field_number_value as track,
+TT.field_number_value as delta,
 TT.field_duration_value as duration,
 TT.field_trackonalbum_nid as albumId,
 

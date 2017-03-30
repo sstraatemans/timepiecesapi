@@ -37,7 +37,7 @@ FROM content_field_mid MID
 WHERE MID.vid = N.vid and MID.nid = N.nid) AS mid
 
  FROM node N
- join content_type_album Album ON Album.vid = N.nid and Album.nid=N.nid
+ join content_type_album Album ON Album.vid = N.vid and Album.nid=N.nid
 where type = 'album'
 and status = 1
 

@@ -10,28 +10,34 @@ mongoose.connect(config.db.url);
 var artistsIds = [];
 var albumIds = [];
 var trackIds = [];
+var categoryIds = [];
 
 var _  = require('lodash');
 var argv = require('minimist')(process.argv.slice(2));
 
 
+require("./cli/category")(function(a){
+  categoryIds = a;
+  require("./cli/chart")(categoryIds, function(a){
 
-
-
-
-
-
-require("./cli/artist")(artistsIds, function(a){
-  artistsIds = a;
-  require("./cli/relatedartist")(artistsIds, function(a){
-    require("./cli/track")(function(a){
-      trackIds = a;
-      require("./cli/album")(artistsIds, trackIds, function(a){
-        albumIds = a;
-        process.exit(1);
-      });
-    });
-
-
+    console.log('done');
+    process.exit(0);
   });
 });
+
+
+// require("./cli/category")(function(a){
+//   categoryIds = a;
+//   require("./cli/artist")(artistsIds, function(a){
+//     artistsIds = a;
+//     require("./cli/relatedartist")(artistsIds, function(a){
+//       require("./cli/track")(function(a){
+//         trackIds = a;
+//         require("./cli/album")(artistsIds, trackIds, function(a){
+//           albumIds = a;
+//           process.exit(1);
+//         });
+//       });
+//     });
+//   });
+// });

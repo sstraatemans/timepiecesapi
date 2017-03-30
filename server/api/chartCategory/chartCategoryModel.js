@@ -12,8 +12,8 @@ var ChartCategorySchema = new Schema({
   body: {
     type: String
   },
-  country: {
-    type: String
+  countries: {
+    type: Array
   },
   website: {
     type: String

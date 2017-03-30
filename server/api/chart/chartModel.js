@@ -5,6 +5,11 @@ var ChartSchema = new Schema({
   nid: { //the NodeID from drupal
     type: Number
   },
+  category: { type: Schema.Types.ObjectId, ref: 'chartCategory' },
+  albums: [{
+    delta: Number,
+    album: {type: Schema.Types.ObjectId, ref: 'album'}
+  }],
   mid: { //the ID of Freebase
     type: String
   },
