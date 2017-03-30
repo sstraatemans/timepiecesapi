@@ -7,7 +7,7 @@ module.exports = function (artists, cb){
   console.log('---------------------------');
   console.log('start related artists');
   console.log('---------------------------');
-  
+
   var i=0;
 
     setRelated(artists);
@@ -17,13 +17,17 @@ module.exports = function (artists, cb){
     function setRelated(artists){
       artists.map(function(a) {
         var related = a.related_artists;
-        var relatedArray = [];
 
         if(related){
             related.map(function(r){
               var relatedArtist = artists[r];
-              a.relatedArtists.push(relatedArtist.id);
-              relatedArtist.relatedArtists.push(a.id);
+              if(relatedArtist){
+                a.relatedArtists.push(relatedArtist.id);
+                relatedArtist.relatedArtists.push(a.id);
+              }else{
+                console.log(chalk.red('✖ notfound artist NID')+r);
+              }
+
             });
         }
       });

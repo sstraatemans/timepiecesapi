@@ -7,7 +7,7 @@ module.exports = function (artistIds, cb){
   console.log('---------------------------');
   console.log('start artists');
   console.log('---------------------------');
-  
+
   var json;
   //first remove all
   Artist.remove({}, function(){
@@ -83,9 +83,9 @@ module.exports = function (artistIds, cb){
         artist.genre = genre;
       }
 
-      //redo the alias
+      //redo the related artists.
       if(artist.related_artists){
-        var related_artists = artist.related_artists.split(', ');
+        var related_artists = artist.related_artists.split(',');
         artist.related_artists = related_artists;
       }
 

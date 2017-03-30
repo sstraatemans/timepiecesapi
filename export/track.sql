@@ -13,6 +13,6 @@ WHERE MID.vid = N.vid and MID.nid = N.nid) AS mid
 JOIN content_type_track TT ON TT.nid = N.nid
 where type = 'track'
 and status = 1
-ORDER BY albumId, track
+ORDER BY albumId, delta
 
 ;
