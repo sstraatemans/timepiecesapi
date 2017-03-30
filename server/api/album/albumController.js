@@ -4,7 +4,11 @@ var logger = require('./../../util/logger');
 
 
 exports.params = function(req, res, next, id) {
-  Album.findById(id)
+  Album.findOne({nid: id})
+    .populate({
+        path:'artist',
+        model:'artist'
+    })
     .then(function(album) {
       if (!album) {
         res.status(404);
@@ -23,6 +27,10 @@ exports.params = function(req, res, next, id) {
 
 exports.get = function(req, res, next) {
   Album.find({})
+    .populate({
+        path:'artist',
+        model:'artist'
+    })
     //.populate('author categories')
     .exec()
     .then(function(albums){
@@ -35,19 +43,21 @@ exports.get = function(req, res, next) {
 exports.post = function(req, res, next) {
   var newAlbum = req.body;
 
-  Album.create(newAlbum)
-    .then(function(album) {
-      res.json(album);
-    }, function(err) {
-      next(err);
-    });
+  //create a unique NID, by checking what the latest nid was and add 1
+  Album.findOne().sort({'nid': -1}).limit(1).then(function(a){
+    newAlbum.nid = parseInt(a.nid)+1;
+    Album.create(newAlbum)
+      .then(function(album) {
+        res.json(album);
+      }, function(err) {
+        next(err);
+      });
+  });
 };
 
 exports.getOne = function(req, res, next) {
   var album = req.album;
-  album.save(function(err, saved) {
-    res.json(album);
-  })
+  res.json(album);
 
 
 };

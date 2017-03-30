@@ -3,9 +3,10 @@ var Schema = mongoose.Schema;
 
 var ChartSchema = new Schema({
   nid: { //the NodeID from drupal
-    type: Number
+    type: Number,
+    unique: true
   },
-  category: { type: Schema.Types.ObjectId, ref: 'chartCategory' },
+  category: {type: Schema.Types.ObjectId, ref: 'chartCategory'},
   albums: [{
     delta: Number,
     album: {type: Schema.Types.ObjectId, ref: 'album'}

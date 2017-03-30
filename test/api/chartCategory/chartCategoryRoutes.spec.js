@@ -59,7 +59,7 @@ exports.chartCategories = function(){
         .set('Accept', 'application/json')
         .set('Authorization', 'Bearer ' + token)
         .end(function(err, resp) {
-          newChartCategoryId = resp.body._id;
+          newChartCategoryId = resp.body.nid;
           expect(resp.body).to.be.an('object');
           expect(resp.body.title).to.equal(chartCategory.title);
           expect(resp.status).to.equal(200);

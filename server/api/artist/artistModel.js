@@ -3,7 +3,8 @@ var Schema = mongoose.Schema;
 
 var ArtistSchema = new Schema({
   nid: { //the NodeID from drupal
-    type: Number
+    type: Number,
+    unique: true
   },
   mid: { //the ID of Freebase
     type: String

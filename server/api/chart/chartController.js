@@ -4,7 +4,11 @@ var logger = require('./../../util/logger');
 
 
 exports.params = function(req, res, next, id) {
-  Chart.findById(id)
+  Chart.findOne({nid: id})
+    .populate({
+        path:'category',
+        model:'chartCategory'
+    })
     .then(function(chart) {
       if (!chart) {
         res.status(404);
@@ -22,8 +26,11 @@ exports.params = function(req, res, next, id) {
 };
 
 exports.get = function(req, res, next) {
-  Chart.find({})
-    //.populate('author categories')
+  Chart.find({}, '-albums')
+    .populate({
+        path:'category',
+        model:'chartCategory'
+    })
     .exec()
     .then(function(charts){
       res.json(charts);
@@ -35,12 +42,17 @@ exports.get = function(req, res, next) {
 exports.post = function(req, res, next) {
   var newChart = req.body;
 
-  Chart.create(newChart)
-    .then(function(chart) {
-      res.json(chart);
-    }, function(err) {
-      next(err);
-    });
+  //create a unique NID, by checking what the latest nid was and add 1
+  Chart.findOne().sort({'nid': -1}).limit(1).then(function(a){
+    newChart.nid = parseInt(a.nid)+1;
+    Chart.create(newChart)
+      .then(function(chart) {
+        res.json(chart);
+      }, function(err) {
+        next(err);
+      });
+  });
+
 };
 
 exports.getOne = function(req, res, next) {

@@ -4,7 +4,7 @@ var logger = require('./../../util/logger');
 
 
 exports.params = function(req, res, next, id) {
-  ChartCategory.findById(id)
+  ChartCategory.findOne({nid: id})
     .then(function(chartCategory) {
       if (!chartCategory) {
         res.status(404);
@@ -35,12 +35,16 @@ exports.get = function(req, res, next) {
 exports.post = function(req, res, next) {
   var newChartCategory = req.body;
 
-  ChartCategory.create(newChartCategory)
-    .then(function(chartCategory) {
-      res.json(chartCategory);
-    }, function(err) {
-      next(err);
-    });
+  //create a unique NID, by checking what the latest nid was and add 1
+  ChartCategory.findOne().sort({'nid': -1}).limit(1).then(function(a){
+    newChartCategory.nid = parseInt(a.nid)+1;
+    ChartCategory.create(newChartCategory)
+      .then(function(chartCategory) {
+        res.json(chartCategory);
+      }, function(err) {
+        next(err);
+      });
+  });
 };
 
 exports.getOne = function(req, res, next) {

@@ -70,7 +70,7 @@ module.exports = function (artists, tracks, cb){
       if(album.artistId){
         var artist = artists[album.artistId];
         if(artist){
-          album.artist = artist;
+          album.artist = artist.id;
         }
       }
 

@@ -3,7 +3,8 @@ var Schema = mongoose.Schema;
 
 var ChartCategorySchema = new Schema({
   nid: { //the NodeID from drupal
-    type: Number
+    type: Number,
+    unique: true
   },
   title: {
     type: String,

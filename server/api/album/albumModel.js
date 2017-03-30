@@ -3,9 +3,13 @@ var Schema = mongoose.Schema;
 
 var AlbumSchema = new Schema({
   nid: { //the NodeID from drupal
-    type: Number
+    type: Number,
+    unique: true
   },
-  artist: { type: Schema.Types.ObjectId, ref: 'Artist' },
+  artist: {
+    type: Schema.Types.ObjectId,
+    ref: 'artist'
+  },
   mid: { //the ID of Freebase
     type: String
   },
@@ -16,10 +20,6 @@ var AlbumSchema = new Schema({
   },
   body: {
     type: String
-  },
-  album: {
-    type: Schema.Types.ObjectId,
-    ref: 'artist'
   },
   wikiLink: {
     type: String

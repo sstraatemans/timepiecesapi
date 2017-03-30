@@ -64,7 +64,7 @@ exports.artists = function(){
         .set('Accept', 'application/json')
         .set('Authorization', 'Bearer ' + token)
         .end(function(err, resp) {
-          newArtistId = resp.body._id;
+          newArtistId = resp.body.nid;
           expect(resp.body).to.be.an('object');
           expect(resp.body.title).to.equal(artist.title);
           expect(resp.body.name.lastName).to.equal(artist.name.lastName);

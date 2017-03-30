@@ -60,7 +60,7 @@ exports.charts = function(){
         .set('Accept', 'application/json')
         .set('Authorization', 'Bearer ' + token)
         .end(function(err, resp) {
-          newChartId = resp.body._id;
+          newChartId = resp.body.nid;
           expect(resp.body).to.be.an('object');
           expect(resp.body.title).to.equal(chart.title);
           expect(resp.body.year).to.equal(chart.year);

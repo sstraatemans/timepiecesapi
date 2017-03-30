@@ -62,7 +62,7 @@ exports.albums = function(){
         .set('Accept', 'application/json')
         .set('Authorization', 'Bearer ' + token)
         .end(function(err, resp) {
-          newAlbumId = resp.body._id;
+          newAlbumId = resp.body.nid;
           expect(resp.body).to.be.an('object');
           expect(resp.body.title).to.equal(album.title);
           expect(resp.status).to.equal(200);
